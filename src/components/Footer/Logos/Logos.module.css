@@ -1,0 +1,12 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.logoStyles {
+    height: 25px;
+    width: 25px;
+    margin-top: 20px;
+    margin-left: 20px;
+}

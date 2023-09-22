@@ -1,0 +1,6 @@
+.container {
+    background-image: url('./Untitled.jpg');
+    background-size: cover; /* Adjust this property to control how the image scales to cover the entire viewport */
+    background-repeat: no-repeat;
+}
+

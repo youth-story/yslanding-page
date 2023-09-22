@@ -1,0 +1,52 @@
+.container {
+    flex: 3;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10%;
+    padding-left: 3%;
+}
+
+h2 {
+    margin: 0;
+}
+
+.logo {
+    height: 100px;
+    width: 100px;
+    margin: 0 auto;
+    display: block; /* This ensures the logo is centered horizontally */
+}
+
+.navbar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+    text-align: center;
+}
+
+.date {
+    color: white;
+    margin-top: 10px; /* Add some top margin */
+}
+
+.days {
+    color: yellow;
+}
+
+.heading1 {
+    font-size: 3rem;
+    color: white;
+    letter-spacing: -2px;
+}
+
+.heading2 {
+    font-size: 3rem;
+    color: rgb(170, 169, 169);
+    letter-spacing: -2px;
+}
+
+p {
+    font-size: 1.3rem;
+    color: rgb(147, 147, 147);
+}
