@@ -38,5 +38,7 @@
 }
 
 .input {
+  margin-top: 0;
   align-self: flex-start;
+  justify-content: flex-start;
 }

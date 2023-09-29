@@ -1,50 +1,50 @@
+/* Input.module.css */
+
 .container {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: flex-start;
     margin-top: 10%;
     text-align: left;
 }
 
-input {
+.inputContainer {
+    display: flex;
+    align-items: center;
+}
+
+.input {
     border: none;
     border-bottom: 5px solid rgba(192, 192, 192, 0.8);
     background: transparent;
     outline: none;
     padding: 5px;
     font-size: 2.5rem;
-    color: white; /* Slightly whitish grey color */
+    color: white;
     letter-spacing: -1px;
+    width: 100%; /* Take up the full width available */
 }
 
-.container.filled input {
-    border-color: white; /* Change border color to white when input is filled */
+.greenInput {
+    color: green;
 }
 
 label {
     color: rgba(192, 192, 192, 0.8);
     font-size: 1.3rem;
+    margin-top: 30px;
+}
+
+.validationButton {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0;
     margin-top: 10px;
 }
 
-/* Add a clickable arrow to the right of the input */
-/* input[type="email"] {
-    background-image: url('path/to/your/arrow-icon.png'); Replace with your arrow icon
-    background-repeat: no-repeat;
-    background-position: right center;
-    padding-right: 20px; Adjust the padding to make space for the arrow
-} */
-
-/* Input.module.css */
-.arrow-icon {
-    position: absolute;
-    right: 10px; /* Adjust the position as needed */
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-}
-
-.greenInput {
-    color: 'green';
+.greyArrow {
+    color: whitesmoke;
 }

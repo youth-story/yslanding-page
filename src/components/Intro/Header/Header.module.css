@@ -1,0 +1,48 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.daysCount {
+    font-size: 4rem;
+    font-weight: bolder;
+    color: yellow;
+}
+
+.para {
+    font-size: 2rem;
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+.launched {
+    font-size: 2rem;
+    color: yellow;
+}
+
+img {
+    width: 300px;
+    height: 100px;
+}
+
+.group {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    margin-left: 20px;
+    margin-top: 20px;
+    padding: 15px 35px 15px 35px;
+    color: black;
+    border-radius: 30px;
+    background-color: white;
+    font-size: 1.3rem;
+    cursor: pointer;
+    border: none;
+    font-weight: 600;
+}
