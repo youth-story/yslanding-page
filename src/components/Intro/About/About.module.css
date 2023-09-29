@@ -26,3 +26,23 @@ p {
     font-size: 1.3rem;
     color: rgb(147, 147, 147);
 }
+
+.img, .imgContainer {
+    display: none;
+}
+
+@media (max-width: 768px) {
+
+    .imgContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .img {
+        display: flex;
+        width: 100%;
+        height: 100%;
+    }
+
+}

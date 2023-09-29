@@ -59,8 +59,8 @@ img {
     }
     
     .launched, .para {
-        font-size: 1.4rem;
-        white-space: nowrap;
+        font-size: 1.3rem;
+        /* white-space: nowrap; */
     }
 
     .daysCount {
@@ -92,5 +92,6 @@ img {
     .btn {
         margin-top: 5px; /* Place the button below the paragraph */
         padding: 15px 10px 15px 10px;
+        align-self: flex-end;
     }
 }
