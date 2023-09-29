@@ -16,7 +16,6 @@ export default function Input({ email, validated, setIsValidated, handleEmailCha
 
         if (isValidEmail) {
             setIsValidated(true);
-            handleEmailChange('Successfully Registered!');
             setDisabled(true); // Disable the input field and button upon successful registration
         } else {
             setIsValidated(false);

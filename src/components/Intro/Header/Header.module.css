@@ -46,3 +46,51 @@ img {
     border: none;
     font-weight: 600;
 }
+
+.mobView {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Change to column for mobile view */
+        text-align: center;
+        display: none;
+    }
+    
+    .launched, .para {
+        font-size: 1.4rem;
+        white-space: nowrap;
+    }
+
+    .daysCount {
+        font-size: 2.5rem;
+    }
+
+    .mobView {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .group {
+        flex-direction: column;
+        margin-top: 20px; /* Add margin to separate image and content */
+    }
+
+    .cont {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    img {
+        width: 150px; /* Decrease image size for mobile view */
+        height: 50px; /* Maintain aspect ratio */
+    }
+
+    .btn {
+        margin-top: 5px; /* Place the button below the paragraph */
+        padding: 15px 10px 15px 10px;
+    }
+}

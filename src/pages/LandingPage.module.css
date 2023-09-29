@@ -4,3 +4,10 @@
     background-repeat: no-repeat;
 }
 
+@media (max-width: 768px) {
+    
+    .container {
+        background-image: url('./backgroundhh.jpg');
+    }
+
+}

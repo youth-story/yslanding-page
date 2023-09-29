@@ -1,7 +1,6 @@
 import React from 'react';
 import Input from './Input';
 import styles from './About.module.css';
-import D2DLogo from './D2DLogo.png';
 
 export default function About({email, validated, setIsValidated, handleEmailChange, disabled, setDisabled}) {
 

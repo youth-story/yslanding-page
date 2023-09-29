@@ -2,3 +2,25 @@
     display: flex;
     height: auto;
 }
+
+.mob {
+    display: none;
+}
+
+@media (max-width: 768px) {
+
+    .container {
+        display: none;
+    }
+
+    .mob {
+        display: flex;
+        margin-top: 40px;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+
+}

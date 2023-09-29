@@ -40,3 +40,48 @@
     /* margin-left: 20%; */
     justify-content: space-around;
   }
+
+  .containerLaptop {
+    display: flex;
+  }
+
+  .containerMobile {
+    display: none;
+  }
+
+  /* Media query for mobile screens */
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 0 10px; /* Adjust the padding as needed for smaller screens */
+    text-align: center;
+  }
+
+  h1 {
+    margin-left: 0;
+    text-align: center; /* Center the heading on smaller screens */
+  }
+
+  .btnContainer {
+    text-align: center;
+    flex-direction: column; /* Stack buttons vertically on smaller screens */
+    align-items: center; /* Center align buttons on smaller screens */
+  }
+
+  .messagesContainer {
+    flex-direction: column;
+  }
+
+  .containerLaptop {
+    display: none;
+  }
+
+  .containerMobile {
+    display: flex;
+  }
+
+  .video {
+    height: 350px;
+  }
+
+  /* You can add more specific styles for mobile screens here */
+}

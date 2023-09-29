@@ -17,14 +17,24 @@ export default function Info() {
     <div className={styles.container}>
       <h1 className={styles.heading}>WHY IT'S COOL?</h1>
       <div className={styles.textContainer}>
+          <div className={[styles.messagesContainer, styles.containerLaptop].join(' ')}>
+            <Message heading={heading1} message={message1} />
+            <Message heading={heading2} message={message2} />
+          </div>
+          <div className={[styles.btnContainer, styles.containerLaptop].join(' ')}>
+            <Button text={text1} color="orange" />
+            <Button text={text2} color="dodgerblue" />
+          </div>
+        
+        <div className={styles.containerMobile}>
         <div className={styles.messagesContainer}>
-          <Message heading={heading1} message={message1} />
-          <Message heading={heading2} message={message2} />
+            <Message heading={heading1} message={message1} />
+            <Button text={text1} color="orange" />
+            <Message heading={heading2} message={message2} />
+            <Button text={text2} color="dodgerblue" />
+          </div> 
         </div>
-        <div className={styles.btnContainer}>
-          <Button text={text1} color="orange" />
-          <Button text={text2} color="dodgerblue" />
-        </div>
+
       </div>
       <iframe
         width="560"

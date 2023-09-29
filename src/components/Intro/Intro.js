@@ -15,6 +15,12 @@ export default function Intro({email,validated, setIsValidated, handleEmailChang
                     <About validated={validated} setIsValidated={setIsValidated} email={email} handleEmailChange={handleEmailChange} disabled={disabled} setDisabled={setDisabled} />
                     <Image />
             </div>
+
+            <div className={styles.mob}>
+                <About validated={validated} setIsValidated={setIsValidated} email={email} handleEmailChange={handleEmailChange} disabled={disabled} setDisabled={setDisabled} />
+                <SocialMedia />
+            </div>
+
         </>
     );
 

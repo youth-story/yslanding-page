@@ -22,3 +22,24 @@
   height: 80px;
   width: 150px;
 }
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: row; /* Change to row for mobile view */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    margin-top: 30px;
+  }
+
+  .ln,
+  .insta,
+  .yt,
+  .fb {
+    margin: 0px; /* Add margin for spacing between items */
+  }
+
+  .fb {
+    display: none;
+  }
+
+}
