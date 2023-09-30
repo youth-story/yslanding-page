@@ -6,11 +6,22 @@ export default function Header({ scroller }) {
   const [daysRemaining, setDaysRemaining] = useState(22);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setDaysRemaining((prevDays) => prevDays - 1);
-    }, 24 * 60 * 60 * 1000);
+    const today = new Date();
+    const launchDate = new Date("2023-10-21");
 
-    return () => clearInterval(interval);
+    if (today.toDateString() === launchDate.toDateString()) {
+      setDaysRemaining(0);
+    } else {
+      const daysLeft = Math.ceil(
+        (launchDate - today) / (24 * 60 * 60 * 1000)
+      );
+
+      if (daysLeft >= 1) {
+        setDaysRemaining(daysLeft);
+      } else {
+        setDaysRemaining(0);
+      }
+    }
   }, []);
 
   return (
