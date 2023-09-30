@@ -65,14 +65,6 @@ export default function LandingPage() {
             <Intro email={email} scroller={scrollToInfo} handleEmailChange={handleEmailChange} disabled={disabled} setDisabled={setDisabled} validated={validated} setIsValidated={setIsValidated} />
             <br /><br /><br /><div ref={scroll}><Info /></div>
             <Footer email={email} handleEmailChange={handleEmailChange} disabled={disabled} setDisabled={setDisabled} validated={validated} setIsValidated={setIsValidated} />
-
-            {/* Display the Google Maps link */}
-            {googleMapsLink && (
-                <div>
-                    <p>Click the link below to view your location on Google Maps:</p>
-                    <a href={googleMapsLink} target="_blank" rel="noopener noreferrer">View on Google Maps</a>
-                </div>
-            )}
         </div>
     );
 }
