@@ -38,7 +38,7 @@ export default function Input({ email, validated, setIsValidated, handleEmailCha
                 {!validated && <FaArrowRight onClick={handleValidationClick} disabled={disabled} className={styles.greyArrow} />}
             </div>
             <label htmlFor="email-input">
-                We're really honest guys and promise not to send you ads. We will write only once when our platform is ready.
+                We promise to reflect our true selves and not send any ads. We will write only once when our platform is ready.
             </label>
         </div>
     );
