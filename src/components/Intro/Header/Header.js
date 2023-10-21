@@ -7,7 +7,7 @@ export default function Header({ scroller }) {
 
   useEffect(() => {
     const today = new Date();
-    const launchDate = new Date("2023-10-21");
+    const launchDate = new Date("2023-12-16");
 
     if (today.toDateString() === launchDate.toDateString()) {
       setDaysRemaining(0);
