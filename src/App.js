@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
 import MyRoutes from "./MyRoutes";
 import { useNavigate, useLocation } from "react-router";
@@ -57,3 +58,18 @@ export default function App() {
     </div>
   );
 }
+=======
+import logo from './logo.svg';
+import './App.css';
+import LandingPage from './pages/LandingPage';
+
+function App() {
+  return (
+    <div>
+      <LandingPage />
+    </div>
+  );
+}
+
+export default App;
+>>>>>>> d7adea5333613dfa8d3949881607b2aca91e7216

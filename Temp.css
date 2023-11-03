@@ -1,0 +1,27 @@
+.a-h {
+  flex-direction: row;
+  }
+
+  .aa-h {
+    flex-direction: column;
+    }
+  
+
+  /* Change flex-direction to column for the sidebar */
+
+/* Add this CSS to your stylesheet or within a <style> tag in your component */
+@media (max-width: 768px) {
+  /* Change flex-direction to column for the main container */
+  .a-h {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Change flex-direction to column for the sidebar */
+  .aa-h {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}

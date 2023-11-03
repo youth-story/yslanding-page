@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+  flex: 1.5;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 1%;
+  text-align: center; /* Center text within the container */
+}
+
+/* Default styles for all screen sizes */
+.ln,
+.insta,
+.yt {
+  margin-top: 10px;
+  height: 80px;
+  width: 80px;
+}
+
+.fb {
+  margin-top: 10px;
+  height: 80px;
+  width: 150px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: row; /* Change to row for mobile view */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    margin-top: 30px;
+  }
+
+  .ln,
+  .insta,
+  .yt,
+  .fb {
+    margin: 0px; /* Add margin for spacing between items */
+  }
+
+  .fb {
+    display: none;
+  }
+
+}

@@ -1,0 +1,97 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.daysCount {
+    font-size: 4rem;
+    font-weight: bolder;
+    color: yellow;
+}
+
+.para {
+    font-size: 2rem;
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+.launched {
+    font-size: 2rem;
+    color: yellow;
+}
+
+img {
+    width: 300px;
+    height: 100px;
+}
+
+.group {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    margin-left: 20px;
+    margin-top: 20px;
+    padding: 15px 35px 15px 35px;
+    color: black;
+    border-radius: 30px;
+    background-color: white;
+    font-size: 1.3rem;
+    cursor: pointer;
+    border: none;
+    font-weight: 600;
+}
+
+.mobView {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Change to column for mobile view */
+        text-align: center;
+        display: none;
+    }
+    
+    .launched, .para {
+        font-size: 1.3rem;
+        /* white-space: nowrap; */
+    }
+
+    .daysCount {
+        font-size: 2.5rem;
+    }
+
+    .mobView {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .group {
+        flex-direction: column;
+        margin-top: 20px; /* Add margin to separate image and content */
+    }
+
+    .cont {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    img {
+        width: 150px; /* Decrease image size for mobile view */
+        height: 50px; /* Maintain aspect ratio */
+    }
+
+    .btn {
+        margin-top: 5px; /* Place the button below the paragraph */
+        padding: 15px 10px 15px 10px;
+        align-self: flex-end;
+    }
+}
