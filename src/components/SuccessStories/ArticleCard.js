@@ -1,45 +1,45 @@
 import React from 'react';
-import {
-  Card,
-  Image,
-  Stack,
-  CardBody,
-  Heading,
-  Text,
-  CardFooter,
-  Button,
-} from '@chakra-ui/react';
+import Card from 'react-bootstrap/Card';
+import { useNavigate } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 
-export default function ArticleCard({ article }) {
+function ArticleCard({ article }) {
+  const navigation = useNavigate();
+
+  const handleReadNowClick = () => {
+    navigation(`/success-story/${article.slug}`);
+  };
+
   return (
-    <>
-      <Card
-        direction={{ base: 'column', sm: 'row' }}
-        overflow='hidden'
-        variant='outline'
-        style={{ textDecoration: 'none', color: 'black', borderBottom: '1px solid grey', margin: '10px 20px 0 20px', }}
-      >
-        <Image
-          objectFit='cover'
-          maxW='100px'
-          maxH='100px'
-          src={article.thumbnail}
-          style={{margin: '20px', borderRadius: '20px'}}
-          alt='Article Thumbnail'
-        />
-
-        <Stack style={{padding: '20px', display: 'flex', justifyContent: 'center'}}>
-          <CardBody>
-            <Heading size='md'>{article.title}</Heading>
-          </CardBody>
-
-          <CardFooter>
-            <p>
-              By <span style={{ fontWeight: 'bold' }}>{article.author}</span>
-            </p>
-          </CardFooter>
-        </Stack>
-      </Card>
-    </>
+    <Card style={{ width: 'fit-content', height: 'fit-content', justifyContent: 'center', alignItems: 'center' }}>
+      <Card.Img  style={{alignSelf: 'center', justifySelf: 'center', width: "50%", height: "50%"}} variant="top" src={article.image} />
+      <Card.Body>
+        <Card.Title>{article.title}</Card.Title>
+        <Card.Text>{article.quote}</Card.Text>
+        <Button variant="primary" onClick={handleReadNowClick}>Read now</Button>
+      </Card.Body>
+      <style>
+        {`
+          @media (max-width: 768px) {
+            .card {
+              width: fit-content;
+              height: 'fit-content';
+            }
+          }
+        `}
+      </style>
+      <style>
+        {`
+          @media (max-width: 768px) {
+            .card {
+              width: fit-content;
+              height: 'fit-content';
+            }
+          }
+        `}
+      </style>
+    </Card>
   );
 }
+
+export default ArticleCard;

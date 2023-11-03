@@ -7,12 +7,6 @@ import MagazineCover from '../components/Magazine/MagazineCover';
 
 export default function Home() {
 
-    const navigate = useNavigate();
-
-    useEffect(()=>{
-        navigate('/success-stories');
-    },[]);
-
     return (
         <>
         </>

@@ -1,167 +1,188 @@
-import React, {useState, useEffect} from 'react';
-import './LoginForm.css';
-import { isEmail } from 'validator';
-import { useNavigate, Link } from 'react-router-dom';
-import api, { setAuthToken } from '../../services/api';
-import axios from 'axios';
-import Card from './Card';
-import Header from './Header';
-import Form from './Form';
-import Social from './Social';
-import {baseUrl} from '../../utils/index';
+import React, { useState, useEffect } from "react";
+import InputForm from "../InputForm";
+import axios from "axios";
+import "./LoginForm.css";
+import InputLabel from "@mui/material/InputLabel";
+import { TextField, InputAdornment, IconButton } from "@mui/material";
+import { baseUrl } from "../../utils/index";
+import PasswordField from "./PasswordField";
+import { styled } from "@mui/system";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
-export default function LoginForm({ data, setData, errorMessage, setErrorMessage, updateErrorMessage}) {
+const RoundedTextField = styled(TextField)`
+  & .MuiOutlinedInput-root {
+    border-radius: 10px;
+    background-color: transparent;
+  }
+  & .MuiOutlinedInput-notchedOutline {
+    border-color: white;
+  }
+  & .MuiInputLabel-root {
+    color: white; // To change the default placeholder color
+  }
+  & .MuiInputBase-input::placeholder {
+    color: white; // To change the default placeholder color
+  }
+  & .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: white; // Change the border color on focus
+  }
+  & .MuiInputLabel-root.Mui-focused {
+    color: white; // Change the placeholder color on focus
+  }
+  & .MuiInputBase-input::placeholder.Mui-focused {
+    color: white; // Change the placeholder color on focus
+  }
+  &:hover .MuiOutlinedInput-notchedOutline {
+    border-color: white; // Change the border color on hover
+  }
+`;
 
-    const [detailsSubmitted, setDetailsSubmitted] = useState(false);
-    const navigate = useNavigate();
-    const [message, setMessage] = useState('');
-    
-    const isValid = (name, value) => {
-        if (name === 'name')
-        {
-            const nameRegex = /^[a-zA-Z\s\-']+$/;
-            return nameRegex.test(value);
-        }
-        else if (name === 'email')
-        {
-            return isEmail(value);
-        }
-        else if (name === 'password' && value.replace(/\s/g, '').length < 8 && value.replace(/\s/g, '').length > 0)
-        {
-            return false;
-        }
+const WhiteIconButton = styled(IconButton)`
+  &.MuiIconButton-root {
+    color: white; /* Apply red color to the icon */
+  }
+`;
 
-        return true;
+const linkStyle = {
+  textDecoration: 'none', // Remove underline from links
+};
+
+function LoginForm({
+  updateErrorMessage,
+  errorMessage,
+  termsChecked,
+  setTermsChecked,
+  data,
+  updateData,
+}) {
+
+    const [loading, setLoading] = useState(false);
+
+    const inputStyles = {
+      color: "white",
+    };
+  
+    const [showPassword, setShowPassword] = useState(false);
+  
+    const toggleShowPassword = () => {
+      setShowPassword(!showPassword);
+    };
+  
+    const handleLoginForm = async (e) => {
+      if (!loading) {
+        setLoading(true);
+  
+        // await submitLoginForm(e);
+  
+        setLoading(false);
+      }
     };
 
-    const handleLinkClick = (event) => {
-        event.preventDefault();
-        navigate('/login');
-      };
-
-    const dataValidated = (data) => {
-
-        if (data.name.replace(/\s/g, '').length === 0)
-        {
-            updateErrorMessage('name', '*This is a required field');
-            return false;
-        } 
-        else if (data.username.replace(/\s/g, '').length === 0)
-        {
-            updateErrorMessage('username', '*This is a required field');
-            return false;
-        }
-        else if (data.email.replace(/\s/g, '').length === 0)
-        {
-            updateErrorMessage('email', '*This is a required field');
-            return false;
-        }
-        else if (data.password.replace(/\s/g, '').length === 0)
-        {
-            updateErrorMessage('password', '*This is a required field');
-            return false;
-        }
-        
-
-        return true;
-
-    }
-
-    const changeValue = (name, value) => {
-      
-        if (name === 'username') {
-          if (value.replace(/\s/g, '').length > 0 && value.includes(' ')) {
-            updateErrorMessage('username', '*Spaces are not allowed');
-            return;
+ return (
+    <div class="container">
+     <p class="header">Login</p>
+     <p>Just some details to get you in!</p>
+    {/* <form className="form"> */}
+      {/* <p style={{ color: "red" }}>{errorMessage}</p> */}
+      {/* <RoundedTextField
+        label="Name"
+        id="name"
+        value={data.name}
+        variant="outlined"
+        InputProps={{ style: inputStyles }}
+        fullWidth
+        margin="normal"
+        onChange={(e) => updateData("name", e.target.value)}
+      />
+      <InputLabel style={{ color: "red" }} htmlFor="name">
+        {errorMessage.name}
+      </InputLabel>
+      <RoundedTextField
+        value={data.username}
+        id="username"
+        onChange={(e) => updateData("username", e.target.value)}
+        label="Username"
+        variant="outlined"
+        InputProps={{ style: inputStyles }}
+        fullWidth
+        margin="normal"
+      />
+      <InputLabel style={{ color: "red" }} htmlFor="username">
+        {errorMessage.username}
+      </InputLabel>
+      <RoundedTextField
+        value={data.email}
+        id="email"
+        onChange={(e) => updateData("email", e.target.value)}
+        label="Email"
+        variant="outlined"
+        InputProps={{ style: inputStyles }}
+        fullWidth
+        margin="normal"
+      />
+      <InputLabel style={{ color: "red" }} htmlFor="email">
+        {errorMessage.email}
+      </InputLabel>
+      <RoundedTextField
+        value={data.password}
+        id="password"
+        onChange={(e) => updateData("password", e.target.value)}
+        label="Password"
+        variant="outlined"
+        type={showPassword ? "text" : "password"}
+        fullWidth
+        margin="normal"
+        InputProps={{
+          endAdornment: (
+            <InputAdornment position="end">
+              <WhiteIconButton
+                onClick={toggleShowPassword}
+                edge="end"
+                aria-label="toggle password visibility"
+              >
+                {showPassword ? <VisibilityOff /> : <Visibility />}
+              </WhiteIconButton>
+            </InputAdornment>
+          ),
+          style: inputStyles,
+        }}
+      />
+      <InputLabel style={{ color: "red" }} htmlFor="password">
+        {errorMessage.password}
+      </InputLabel>
+      <label>
+        <input
+          type="checkbox"
+          checked={termsChecked}
+          onChange={() =>
+            setTermsChecked((prevTermsChecked) => !prevTermsChecked)
           }
-          else if (value.replace(/\s/g, '').length > 30)
-          {
-            updateErrorMessage('username', '*Max length is 30');
-            return;
-          }
-        } 
-      
-        let inputValue = value;
-        if (name === 'name')
-          inputValue = value.toLowerCase().replace(/\b\w/g, (match) => match.toUpperCase());
-        setData((prevData) => ({
-          ...prevData,
-          [name]: inputValue,
-        }));
-      
-        if (value.replace(/\s/g, '').length === 0 || isValid(name, value)) {
-          updateErrorMessage(name, '');
-        }
-      };      
-      
-    const changeOTP = (e) => {
-        const {name, value} = e.target;
-           setData((prevData) => ({
-            ...prevData,
-            [name]: value.replace(/[^0-9]/g, ''),
-          }));
-    }
-
-    const submitLoginForm = async (e) => {
-      // e.preventDefault();
-     
-        setDetailsSubmitted(false);
-
-        if (!data.username || !data.password)
-        {
-          setMessage('Please enter all details');
-          return;
-        }
-
-      try {
-
-        const response = await axios.post(`${baseUrl}/api/auth/login`, {
-          email: data.email,
-          name: data.name,
-          password: data.password,
-          username: data.username,
-          mode: 0,
-        });
-        setData({
-          email: '',
-          name: '',
-          password: '',
-          username: '',
-          mode: 0,
-        });
-    
-        const { token } = response.data;
-    
-        // Set the JWT token in the request headers
-        setAuthToken(token);
-    
-        // Store the JWT token in local storage or cookies
-        localStorage.setItem('token', token);
-    
-        // Redirect the user to the protected route or dashboard
-        navigate('/');
-      } catch (err) {
-        // Handle login error
-        setMessage('An error occured, please enter correct details or try again later');
-      }
-    }
-
-    return(
-        <div className='loginform-container'>
-          <Card>
-             <Header />
-             <Form data={data} message={message} changeValue={changeValue} errorMessage={errorMessage} submitLoginForm={submitLoginForm} />
-             <div className="or-sign-up-with">
-              <div className="line"></div>
-              <div className="or-text">or continue with</div>
-              <div className="line"></div>
-            </div>
-             <Social setData={setData} setMessage={setMessage} />
-             <div className="account-container">
-              <div className="account">Don't have an account? <Link style={{color: 'red', textDecoration: 'none', fontWeight: '700'}} to='/sign-up'>Sign up</Link></div>
-            </div>
-          </Card>
-        </div>
-    );
-
+        />
+        <span style={{color: 'white'}}>
+         I agree with{' '}
+        <span style={linkStyle}>
+          <a href="/privacy-policy">Privacy Policy</a>
+        </span>{' '}
+        and{' '}
+        <span style={linkStyle}>
+          <a href="/terms-of-use">Terms of Use</a>
+        </span>
+        </span>
+      </label>
+      <button
+        onClick={(e) => {
+          handleLoginForm(e);
+        }}
+        type="submit"
+        className="submit-button"
+        disabled={loading}
+      >
+        {loading ? "Logging in..." : "Login"}
+      </button>
+    </form> */}
+    </div>
+  );
 }
+
+export default LoginForm;

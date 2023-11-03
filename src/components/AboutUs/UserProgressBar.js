@@ -6,8 +6,8 @@ import axios from 'axios';
 import { baseUrl } from '../../utils';
 
 const UserProgressBar = () => {
-  const [usersCount, setUsersCount] = useState(1000);
-  const [totalUsers, setTotalUsers] = useState(10000);
+  const [usersCount, setUsersCount] = useState(523);
+  const [totalUsers, setTotalUsers] = useState(1000);
 
   function roundToNextHigherPowerOfTen(number) {
     const orderOfMagnitude = Math.pow(10, Math.floor(Math.log10(number)) + 1);
@@ -26,7 +26,7 @@ const UserProgressBar = () => {
         }
     
       } catch (error) {
-        setUsersCount(3000); // Default value in case of an error
+        setUsersCount(523); // Default value in case of an error
       }
     };    
 

@@ -93,7 +93,7 @@ export default function CustomizedTimeline() {
             variant="body2"
             color="text.secondary"
           >
-            August, 2023
+            October, 2023
           </TimelineOppositeContent>
           <TimelineSeparator>
             <TimelineConnector sx={{ bgcolor: 'secondary.main' }} />
@@ -104,9 +104,9 @@ export default function CustomizedTimeline() {
           </TimelineSeparator>
           <TimelineContent sx={{ py: '12px', px: 2 }}>
             <Typography variant="h6" component="span">
-              Website launched
+              Website Beta launched
             </Typography>
-            <Typography>We launched our website for public and we were joined by more than 1000 users on the first day and counting</Typography>
+            <Typography>We launched our website for public and we were joined by more than 100 users on the first day and counting</Typography>
           </TimelineContent>
         </TimelineItem>
         <TimelineItem>

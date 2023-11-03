@@ -24,7 +24,7 @@
   .social-container {
     display: flex;
     padding: 0.1rem 0 0.1rem 0;  
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
   }

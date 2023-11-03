@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    letter-spacing: 2px;
+    align-self: flex-start;
 }
 
 .logo {
@@ -12,10 +12,20 @@
     margin: 0;
 }
 
-.text div {
+.text {
+    text-align: left;
+    align-items: flex-start;
+}
+
+.text h2 {
     font-size: 1.5rem;
     font-weight: bold;
-    margin: 1.5% 0 0 0;
+    /* margin: 1.5% 0 0 0; */
+    color: white;
+}
+
+.text p{
+    color: white;
 }
 
 .highlight {

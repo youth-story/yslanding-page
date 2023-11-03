@@ -1,30 +1,42 @@
-import React, { useEffect, useState } from 'react';
-import SignupForm from '../components/LoginSignup/SignupForm';
-import './css/Signup.css';
-import { useNavigate } from 'react-router';
-import { gapi } from 'gapi-script';
-import { clientId } from '../utils/index';
+import React, { useEffect, useState } from "react";
+import SignupModal from "../components/Sign-Up/SignupModal";
+import "./css/Signup.css";
+import { useNavigate } from "react-router";
+import { gapi } from "gapi-script";
+import { clientId } from "../utils/index";
+import { Modal, Button } from "react-bootstrap";
+import D2DLogo from './D2DLogo.png';
 
-export default function Signup({ type }) {
+export default function Signup({ type, isModalOpen, setIsModalOpen }) {
+  
   const [data, setData] = useState({
-    username: '',
-    email: '',
-    password: '',
-    name: '',
+    username: "",
+    email: "",
+    password: "",
+    name: "",
     otp: null,
     mode: 0,
   });
 
+  const [termsChecked, setTermsChecked] = useState(false);
+
   const [errorMessage, setErrorMessage] = useState({
-    username: '',
-    email: '',
-    password: '',
-    name: '',
-    otp: '',
+    username: "",
+    email: "",
+    password: "",
+    name: "",
+    otp: "",
   });
 
   const updateErrorMessage = (name, value) => {
-    setErrorMessage(prevData => ({
+    setErrorMessage((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const updateData = (name, value) => {
+    setData((prevData) => ({
       ...prevData,
       [name]: value,
     }));
@@ -34,21 +46,24 @@ export default function Signup({ type }) {
     function start() {
       gapi.client.init({
         clientId: clientId,
-        scope: '',
+        scope: "",
       });
     }
 
-    gapi.load('client:auth2', start);
-  });
+    gapi.load("client:auth2", start);
+  }, []);
 
   return (
-    <div className='container-signup'>
-      <SignupForm
-        data={data}
-        setData={setData}
-        errorMessage={errorMessage}
-        setErrorMessage={setErrorMessage}
+    <div>
+      {/* <img src={D2DLogo} /> */}
+      <SignupModal
+        isModalOpen={isModalOpen}
         updateErrorMessage={updateErrorMessage}
+        errorMessage={errorMessage}
+        termsChecked={termsChecked}
+        setTermsChecked={setTermsChecked}
+        data={data}
+        updateData={updateData}
       />
     </div>
   );

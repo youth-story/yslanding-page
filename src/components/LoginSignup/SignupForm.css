@@ -11,21 +11,6 @@
     width: 100vw;
 }
 
-.or-sign-up-with {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 20px 0;
-    width: 60%;
-  }
-  
-  .line {
-    flex: 1;
-    height: 2px;
-    background-color: red;
-    width: 100%;
-  }
-
   .account-container {
     display: flex;
     align-items: center;
@@ -36,13 +21,7 @@
 
   .account {
     margin: 0 10px;
-    color: black;
-    font-weight: bold;
-  }
-  
-  .or-text {
-    margin: 0 10px;
-    color: #7B7B7B;
+    color: white;
     font-weight: bold;
   }
 

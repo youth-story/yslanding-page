@@ -10,8 +10,8 @@ const Social = ({setData, setMessage}) => {
 
   const navigate = useNavigate();
 
-  const successLogin = async (res) => {
-
+  const successSignUp = async (res) => {
+     
     setData({
       email: '',
       name: '',
@@ -22,7 +22,7 @@ const Social = ({setData, setMessage}) => {
 
     try {
 
-      const response = await axios.post(`${baseUrl}/api/auth/login`, {
+      const response = await axios.post(`${baseUrl}/api/auth/sign-up`, {
         email: res.profileObj.email,
         name: res.profileObj.name,
         password: -1,
@@ -30,24 +30,15 @@ const Social = ({setData, setMessage}) => {
         mode: 1,
       });
   
-      const { token } = response.data;
-  
-      // Set the JWT token in the request headers
-      setAuthToken(token);
-  
-      // Store the JWT token in local storage or cookies
-      localStorage.setItem('token', token);
-      console.log(token);
-  
       // Redirect the user to the protected route or dashboard
-      navigate('/');
+      navigate('/login');
     } catch (err) {
       // Handle login error
       setMessage('An error occured, please try again later');
     }
   };
 
-  const failureLogin = () => {
+  const failureSignUp = () => {
     setMessage('Google login failure');
   };
 
@@ -57,13 +48,13 @@ const Social = ({setData, setMessage}) => {
       <GoogleLogin
         className='google-button-container'
         clientId={clientId}
-        onSuccess={successLogin}
-        onFailure={failureLogin}
+        onSuccess={successSignUp}
+        onFailure={failureSignUp}
         buttonText=""
         cookiePolicy={'single_host_origin'}
         isSignedIn={false}
       >
-        <span className='google-button-icon'>Login with Google</span>
+        <span className='google-button-icon'>Sign Up with Google</span>
       </GoogleLogin>
     </div>
   );

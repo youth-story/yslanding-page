@@ -22,7 +22,7 @@ export default function Header({ title }) {
   return (
     <div className="header-container">
       <div className="logo-title">
-        <img className="logo" src={D2DLogo} alt="D2D Logo" />
+        <img /*className="logo"*/ style={{width: '200px', height: '200px'}} src={D2DLogo} alt="D2D Logo" />
         <h1 className="header-title">{title}</h1>
       </div>
       <p className="header-description">

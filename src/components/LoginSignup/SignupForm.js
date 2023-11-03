@@ -10,7 +10,7 @@ import Form from './Form';
 import Social from './Social';
 import {baseUrl} from '../../utils/index';
 
-export default function SignupForm({ data, setData, errorMessage, setErrorMessage, updateErrorMessage}) {
+export default function SignupForm({ termsChecked, setTermsChecked, data, setData, errorMessage, setErrorMessage, updateErrorMessage}) {
 
     const [detailsSubmitted, setDetailsSubmitted] = useState(false);
     const navigate = useNavigate();
@@ -185,15 +185,15 @@ export default function SignupForm({ data, setData, errorMessage, setErrorMessag
         <div className='signupform-container'>
           <Card>
              <Header />
-             <Form data={data} message={message} changeValue={changeValue} errorMessage={errorMessage} submitSignupForm={submitSignupForm} />
-             <div className="or-sign-up-with">
-              <div className="line"></div>
-              <div className="or-text">or sign up with</div>
-              <div className="line"></div>
-            </div>
+             <Form termsChecked={termsChecked} setTermsChecked={setTermsChecked} data={data} message={message} changeValue={changeValue} errorMessage={errorMessage} submitSignupForm={submitSignupForm} />
              <Social setData={setData} setMessage={setMessage} />
              <div className="account-container">
-              <div className="account">Already have an account? <Link style={{color: 'red', textDecoration: 'none', fontWeight: '700'}} to='/login'>Log in</Link></div>
+             <div className="account" style={{ color: "white", whiteSpace: 'nowrap', textAlign: "center" }}>
+              Already registered?{' '}
+              <Link style={{ color: 'white', textDecoration: 'none' }} to="/login">
+                Login
+              </Link>
+            </div>
             </div>
           </Card>
         </div>
